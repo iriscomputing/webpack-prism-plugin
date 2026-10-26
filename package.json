@@ -1,0 +1,20 @@
+{
+  "name": "@iris-os/webpack-prism-plugin",
+  "version": "1.0.0",
+  "description": "Optical shard packager and zero-disk in-memory browser enclave plugin for Webpack.",
+  "main": "index.js",
+  "license": "Commercial-Sovereign",
+  "author": "Vanguard Frontier Labs",
+  "keywords": [
+    "webpack",
+    "webpack-plugin",
+    "encryption",
+    "zero-disk",
+    "security",
+    "optical-shards",
+    "anti-tamper"
+  ],
+  "peerDependencies": {
+    "webpack": "^4.0.0 || ^5.0.0"
+  }
+}
