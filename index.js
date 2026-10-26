@@ -1,10 +1,10 @@
 /**
- * ColorQL / Iris Webpack Plugin (IrisPrismWebpackPlugin.js)
+ * Iris Prism Webpack Plugin (IrisPrismWebpackPlugin.js)
  *
  * Hooks directly into Webpack's compilation lifecycle:
  * 1. Hooks `compilation.hooks.processAssets` (STAGE_OPTIMIZE / STAGE_SUMMARIZE).
- * 2. Transmutes JavaScript/CSS assets into ColorQL 3.0 optical shard streams
- *    and encrypted SEC-CQL-01 memory payloads.
+ * 2. Transmutes JavaScript/CSS assets into Iris optical shard streams
+ *    and encrypted SEC-IRIS-01 memory payloads.
  * 3. Injects the zero-disk ephemeral WASM/Web Worker runtime bootstrap
  *    so the browser decrypts and executes the app in RAM without ever
  *    leaking plaintext source code to disk or DevTools source inspectors.
@@ -40,7 +40,7 @@ class IrisPrismWebpackPlugin {
         },
         (assets) => {
           const shardManifest = {
-            schema: 'SEC-CQL-01/WEBPACK-OPTICAL',
+            schema: 'SEC-IRIS-01/WEBPACK-OPTICAL',
             timestamp: Date.now(),
             author_did: this.options.authorDid,
             shards: [],
@@ -72,7 +72,7 @@ class IrisPrismWebpackPlugin {
             const ciphertext = Buffer.concat([cipher.update(buffer), cipher.final()]);
             const authTag = cipher.getAuthTag();
 
-            // 2. Optical ColorQL Matrix State representation
+            // 2. Optical Prism Matrix State representation
             // Map the byte density into 4KB optical quantum slots
             const opticalSlotCount = Math.ceil(ciphertext.length / 4096);
 
